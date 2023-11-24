@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <style>        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url("/static/back_ground/index.jpg");
+            background-size: cover;
+            height: 100vh;
+
+        }
+        div.main{
+            width: 400px;
+            margin: 100px auto 0px auto;
+        }
+        h2{
+            text-align: center;
+            padding: 20px;
+            font-family:sans-serif ;
+        }
+        div.register{
+            background-color: rgba(0,0,0,0.5);
+            width: 100%;
+            font-size:18px;
+            border-radius: 10px;
+            border: 1px solid rgb(255,255,255,0.3);
+            box-shadow: 2px 2px 15px rgb(255,255,255,0.3);
+            color: #fff;
+         }
+         form#register{
+            margin: 40px;
+         }
+         label{
+            font-family: sans-serif;
+            font-size: 18px;
+            font-style: italic;
+         }
+         input#name{
+            width:300px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            outline: 0;
+            padding: 7px;
+            background-color: #fff;
+            box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+
+         }
+         .button{
+            width: 300px;
+            padding: 7px;
+            font-size: 16px;
+            font-family: sans-serif;
+            border-radius: 3px;
+            background-color: rgb(255, 121, 1);
+            margin-bottom: 20px;
+            border: 1px solid rgba(250,250,250,0.3);
+         }
+         label,span,h2{
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+         }
+         a{
+            text-decoration: none;
+         }</style>
+</head>
+<body data-new-gr-c-s-check-loaded="9.70.0" data-gr-ext-installed="" style="overflow-x: hidden; max-height: fit-content;">
+    <div class="main">
+       
+    <div class="register">
+        <h2>Register Here</h2>
+        <form id="register" method="post" action="/register">
+            <label for="">First Name : </label>
+            <br>
+            <input type="text" name="fname" id="name" placeholder="Enter Your First Name">
+            <br><br>
+            <label for="">Last Name :</label>
+            <br>
+            <input type='number' name="lname" id="name" placeholder="Enter Your Last Name">
+            <br><br>
+            <label for="">Your Age :</label>
+            <br>
+            <input type="text" name="age" id="name" placeholder="How Old Are You?">
+            <br><br>
+            <label for="">Email :</label>
+            
+            <input type="text" name="age" id="name" placeholder="Enter Your valid Email">
+            <br><br>
+            <label for="">Gender : </label>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gender" id="male">
+            &nbsp;
+            <span id="male">Male</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gender" id="female">
+            &nbsp;
+            <span id="male">Female</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <br><br>
+
+            <label for="">Language : </label>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            
+            
+            <input type="checkbox" name="Language" id="english">
+            &nbsp;
+            <span id="male">English</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="" id="greek">
+            &nbsp;
+            <span id="male">Telugu</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="" id="hindi">
+            &nbsp;
+            <span id="hindi">Hindi</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <br>
+            <br>
+
+           <button class="button"><a href="index.html">Submit</a></button>
+        </form>
+
+    </div> <!-- end of register    -->
+       
+    </div> <!-- end of main -->
+    
+
+
+</body>
