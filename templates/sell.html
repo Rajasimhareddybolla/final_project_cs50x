@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}
+SELL
+{% endblock %}
+{% block main %}
+<label for="stock">Choose a stock :  </label>
+    <form action="/sell" method="post">
+        <select  class="form-select" aria-label="Default select example" name="symbol" style="width:20% ;display:inline;color:white;background-color:gray">
+            <option selected disabled>STOCKS</option>
+            {% for stock in stocks %}
+            <option class="form-check-input" type="radio" value={{stock[ "stock_name" ]}}>{{stock["stock_name"]}}</option>
+            {% endfor %}
+          </select>
+        <input type="number" name="shares" placeholder="#" autofocus auto-complete="off" style="color:white;background-color:gray">
+        <button  class="btn btn-primary" type="submit"> Submit </button>
+    </form>
+
+{% endblock %}
