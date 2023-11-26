@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="icon" href="/static/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+
+        .product img {
+            max-width: 300px;
+            margin-right: 10px;
+            
+        }
+        img:hover{
+          size: 100%;
+          background-color: wheat;
+        }
+
+        .product-info {
+            flex-grow: 1;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1> Cart</h1>
+    </header>
+
+    <main style="overflow-y: hidden;">
+    <div style="height: 580px ;overflow-y: scroll;">
+      {%for prodouct in prodoucts%}
+          <div class="product" style="display: flex;justify-content: space-around;align-items:first baseline;overflow-y: scroll;" >
+            <form action="/show_preview" method="post">
+              <input type="hidden" name="image" value={{prodouct[0]["image" ]}}>
+              <button type="submit">
+                   <div class="">
+                       <img  src={{prodouct[0]["image"]}} alt="Description of Image 1">
+                       <!-- Add more images as needed -->
+                   </div>
+               </button>
+           </form>
+              <div class="product-info">
+                  <h2>{{prodouct[0]["bookname"]}}</h2>
+                  <p> <span style="color: #d50909;">Discription</span> :  {{prodouct[0]["description"]}}.</p>
+                  <p><span style="color: rgb(213, 9, 9);">Price </span> :   {{prodouct[0]["price"]}}</p>
+                  <h4>Publisher : {{prodouct[0]["publisher"]}}</h3>
+                    <form action="/del" method="get">
+                        <input type="hidden"  name="image" value={{prodouct[0]["image" ]}}>
+                        <input type="submit" value="remove" class="btn btn-dark" placeholder="del" style="color: rgb(93, 86, 86);width: 20%; color: #ccc;background-color: #333;">
+                     </form>
+                </div>
+          </div>
+          
+        {%endfor%}
+    </div>
+        <a class="checkout-btn"  href="/">Proceed to Checkout</button>
+    </main>
+</body>
+</html>

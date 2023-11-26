@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book mart</title>
+    <link rel="icon" href="/static/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-repeat: repeat;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            padding: 0.5em;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 1em;
+            margin: 0 1em;
+        }
+        .image-container {
+        max-width: 275px;
+        height: auto;
+            }
+
+        img {
+            width: 110%;
+            height: 220px;
+        }
+        section {
+            padding: 2em;
+        }
+        .featured-books {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .book {
+            width: 30%;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .nice-photo-frame {
+    height: 30vh;
+    display: inline-block;
+    overflow: hidden; /* Ensure the image stays within the frame */
+    border: 10px solid #fff; /* White border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease-in-out; /* Add a smooth zoom effect on hover */
+}
+
+.nice-photo-frame img {
+    display: block;
+    width: 100%; /* Make the image fill the frame */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for the image */
+}
+
+.nice-photo-frame:hover {
+    transform: scale(1.05); /* Zoom in slightly on hover */
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Our Bookmart</h1>
+    </header>
+    <style>
+        a{
+            color: antiquewhite
+        }
+        a:hover{
+            text-decoration: underline;
+            color:bisque;
+        }
+        
+    </style>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/cart">Cart</a>
+        <a href="/logout">logout</a>
+        <a href="https://rajasimhareddybolla.github.io/portfolio/" style="display: inline; color: azure;" target="__self__"> @raja</a>
+     
+    </nav>
+
+    <section>
+
+        <h2 style=" color: #444;">Featured Books</h2>
+        <div class="featured-books">
+                <!-- Example Book -->
+
+            {% for stock in stocks %}
+                <div class="book">
+                    <form action="/show_preview" method="post">
+                       <input type="hidden" name="image" value={{stock["image"]}}>
+                       <button type="submit">
+                            <div class="nice-photo-frame">
+                                <img  src={{stock["image"]}} alt="Description of Image 1">
+                                <!-- Add more images as needed -->
+                            </div>
+                        </button>
+                    </form>
+                    <h3> {{stock["bookname"]}}</h3>
+                    <p style="color: rgb(6, 6, 6);"><span style="color: rgb(100, 50, 50);">Author</span>  :{{stock["author"]}}</p>
+                    <p style="color: rgb(99, 76, 122)"><span style="color: rgb(213, 9, 9);">Discription</span>  :   {{stock["description"]}}</p>
+                    <h4 style="color:rgb(14, 14, 14);"><span style="color: rgb(214, 15, 15);size: 70%;">Price </span> :  &#8377;{{stock["price"]}}</h4>
+                    <form action="/cart" method="post">
+                        <input type="hidden" name="image" value={{stock["image"]}}>
+                        <button class="btn btn-light" type="submit" >Add to Cart</button>
+                    </form>
+                    <br>
+                    <hr style="color: #444;size: 70%;">
+                    <br>
+                </div>
+            {% endfor %}
+            <br>
+                <!-- Add more books here -->
+        </div>
+    </section>
+    <hr style="color: black;">
+    <br>
+    <footer>
+        <span>&copy; 2023 Bookstore. All rights reserved to .</span>
+        <a href="https://rajasimhareddybolla.github.io/portfolio/" style="display: inline; color: azure;" target="__self__"> @raja</a>
+    </footer>
+</body>
+
+</html>

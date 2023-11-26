@@ -1,4 +1,11 @@
-cs50
-Flask
-Flask-Session
-requests
+BOOK-MART
+  requirments:
+      python:
+        cs50
+        Flask
+        Flask-Session
+        requests
+      html
+      css
+      java-script
+      bootstrap
