@@ -235,19 +235,16 @@ def register():
         if password != confirmation:
             return apology("mismatch of passwords")
         if request.form.get("type")=="user":
-            try:
-                db.execute(
-                    "INSERT INTO users(username,hash,age,mail,gender,preferd) VALUES (?,?,?,?,?,?)",
-                    name,
-                    generate_password_hash(password),
-                    age,
-                    mail,
-                    gender,
-                    gener
-
+            db.execute(
+                "INSERT INTO users(username,hash,age,mail,gender,preferd) VALUES (?,?,?,?,?,?)",
+                name,
+                generate_password_hash(password),
+                age,
+                mail,
+                gender,
+                gener
                 )
-            except:
-                return apology("sorry user already exist")
+
         else:
             try:
                 db.execute(

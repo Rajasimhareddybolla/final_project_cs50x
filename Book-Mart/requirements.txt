@@ -9,3 +9,4 @@ BOOK-MART
       css
       java-script
       bootstrap
+      sqlite
